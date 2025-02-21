@@ -4,13 +4,6 @@ import requests
 from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, CallbackContext
 
-# Настройки проксиjj
-proxy_host = '216.173.107.26'
-proxy_port = '5994'
-proxies = {
-    'http': f'http://{proxy_host}:{proxy_port}',
-}
-
 
 async def ask_gpt(prompt):
     """Функция для отправки запроса в GPT-4o."""
@@ -24,7 +17,6 @@ async def ask_gpt(prompt):
                 {"role": "user", "content": prompt}
             ]
         },
-        proxies=proxies
     )
     print(response.json())
     return response.json()['choices'][0]['message']['content']
