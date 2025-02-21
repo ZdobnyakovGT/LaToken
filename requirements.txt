@@ -3,4 +3,3 @@ requests
 asyncio
 nest_asyncio
 openai
-os
